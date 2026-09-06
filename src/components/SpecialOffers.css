@@ -1,0 +1,922 @@
+/* =========================================
+   SPECIAL OFFERS SECTION
+========================================= */
+
+.special-offers {
+  position: relative;
+
+  width: 100%;
+  min-height: 680px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 12% 45%,
+      rgba(255, 255, 255, 0.7),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(108, 138, 190, 0.25),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #c5d4e3 0%, #dce6ef 48%, #b9cad9 100%);
+
+  color: #26384f;
+}
+
+/* =========================================
+   PREMIUM TOP LIGHT
+========================================= */
+
+.special-offers::before {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  top: -350px;
+  left: 35%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.15) 45%,
+    transparent 70%
+  );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   DECORATIVE LIGHT LAYER
+========================================= */
+
+.special-offers::after {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -200px;
+  top: 80px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(67, 94, 135, 0.18);
+
+  box-shadow:
+    0 0 0 70px rgba(255, 255, 255, 0.08),
+    0 0 0 140px rgba(255, 255, 255, 0.05);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   BACKGROUND GRID
+========================================= */
+
+.offer-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.18;
+
+  background-image:
+    linear-gradient(rgba(57, 82, 118, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 82, 118, 0.14) 1px, transparent 1px);
+
+  background-size: 55px 55px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 25%,
+    black 75%,
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   BACKGROUND GLOWS
+========================================= */
+
+.offer-bg-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 500px;
+  height: 500px;
+
+  left: -180px;
+  top: 50px;
+
+  background: rgba(80, 120, 180, 0.28);
+
+  animation: ambientGlowOne 8s ease-in-out infinite;
+}
+
+.glow-two {
+  width: 550px;
+  height: 550px;
+
+  right: -200px;
+  bottom: -220px;
+
+  background: rgba(109, 92, 190, 0.2);
+
+  animation: ambientGlowTwo 10s ease-in-out infinite;
+}
+
+@keyframes ambientGlowOne {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(40px, -30px) scale(1.08);
+  }
+}
+
+@keyframes ambientGlowTwo {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-40px, -30px) scale(1.08);
+  }
+}
+
+/* =========================================
+   DECORATIVE CIRCLES
+========================================= */
+
+.offer-circle {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(58, 83, 120, 0.16);
+
+  pointer-events: none;
+}
+
+.circle-one {
+  width: 520px;
+  height: 520px;
+
+  left: -190px;
+  top: 60px;
+
+  animation: rotateCircle 30s linear infinite;
+}
+
+.circle-two {
+  width: 700px;
+  height: 700px;
+
+  right: -320px;
+  top: -260px;
+
+  border-color: rgba(255, 255, 255, 0.35);
+
+  animation: rotateCircleReverse 40s linear infinite;
+}
+
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCircleReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.offer-container {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(1400px, 100%);
+
+  min-height: 610px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  align-items: center;
+
+  padding: 60px 8%;
+}
+
+/* =========================================
+   PRODUCT AREA
+========================================= */
+
+.offer-product-area {
+  position: relative;
+
+  height: 480px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   PRODUCT SPOTLIGHT
+========================================= */
+
+.offer-product-area::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.25) 40%,
+    transparent 70%
+  );
+
+  filter: blur(10px);
+}
+
+.offer-product-area::after {
+  content: "";
+
+  position: absolute;
+
+  width: 380px;
+  height: 120px;
+
+  bottom: 45px;
+
+  border-radius: 50%;
+
+  background: rgba(32, 53, 82, 0.22);
+
+  filter: blur(30px);
+
+  transform: rotate(-5deg);
+}
+
+/* =========================================
+   BADGE
+========================================= */
+
+.special-badge {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.42);
+
+  backdrop-filter: blur(16px);
+
+  box-shadow: 0 12px 30px rgba(52, 74, 105, 0.12);
+
+  color: #344965;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #ff6b4a;
+
+  box-shadow:
+    0 0 0 5px rgba(255, 107, 74, 0.15),
+    0 0 15px rgba(255, 107, 74, 0.8);
+
+  animation: badgePulse 1.8s infinite;
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.35);
+  }
+}
+
+/* =========================================
+   PRODUCT GLOW
+========================================= */
+
+.headphone-glow {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(74, 112, 190, 0.35),
+    rgba(112, 144, 210, 0.1) 45%,
+    transparent 70%
+  );
+
+  filter: blur(25px);
+
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+.headphone-image {
+  position: relative;
+
+  z-index: 4;
+
+  width: min(100%, 540px);
+
+  max-height: 460px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 35px 30px rgba(24, 39, 62, 0.3));
+
+  animation: productFloat 6s ease-in-out infinite;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.offer-product-area:hover .headphone-image {
+  filter: drop-shadow(0 45px 40px rgba(24, 39, 62, 0.42));
+}
+
+@keyframes productFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(1deg);
+  }
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.offer-content {
+  position: relative;
+  z-index: 6;
+
+  max-width: 600px;
+
+  padding: 20px 0;
+
+  /* Remove glass card */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.offer-content::before {
+  content: "";
+
+  position: absolute;
+
+  left: -28px;
+  top: 25px;
+
+  width: 3px;
+  height: 140px;
+
+  background: linear-gradient(
+    to bottom,
+    #3d6096 0%,
+    #7692ba 55%,
+    transparent 100%
+  );
+
+  border-radius: 10px;
+}
+
+/* .offer-content::after {
+  content: "DEAL";
+
+  position: absolute;
+
+  top: -55px;
+  right: -30px;
+
+  font-size: 140px;
+
+  font-weight: 700;
+
+  letter-spacing: -8px;
+
+  color: rgba(52, 78, 112, 0.05);
+
+  pointer-events: none;
+
+  z-index: -1;
+} */
+
+/* =========================================
+   TOP LABEL
+========================================= */
+
+.offer-top-label {
+  display: inline-flex;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: rgba(70, 95, 135, 0.1);
+
+  color: #405b82;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.offer-content h2 {
+  margin: 0;
+
+  font-size: clamp(55px, 6vw, 70px);
+
+  font-weight: 300;
+
+  line-height: 0.9;
+
+  
+
+  color: #263b59;
+}
+
+.offer-content h2 span {
+  color: transparent;
+
+  -webkit-text-stroke: 1px #4d6688;
+}
+
+/* =========================================
+   TITLE ACCENT
+========================================= */
+
+.title-accent {
+  width: 120px;
+  height: 3px;
+
+  margin: 28px 0;
+
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #405f92, #7c92b3, transparent);
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.offer-description {
+  margin: 0;
+
+  font-size: clamp(20px, 2vw, 28px);
+
+  letter-spacing: 0.5px;
+
+  font-weight: 500;
+
+  color: #2f4563;
+}
+
+.offer-subtext {
+  margin: 12px 0 30px;
+
+  color: #526882;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.3px;
+}
+
+/* =========================================
+   PRICE CARD
+========================================= */
+
+.offer-price-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1px
+    1.3fr;
+
+  width: 100%;
+
+  max-width: 520px;
+
+  padding: 25px;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.25)
+  );
+
+  box-shadow: 0 18px 45px rgba(43, 65, 96, 0.12);
+}
+
+/* Price card highlight */
+
+.offer-price-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(109, 126, 210, 0.12);
+
+  filter: blur(20px);
+}
+
+.price-card-top {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.price-card-top span,
+.offer-price-main span {
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  font-weight: 700;
+
+  color: #60738d;
+}
+
+.price-card-top strong {
+  font-size: 22px;
+
+  font-weight: 500;
+
+  text-decoration: line-through;
+
+  color: #6c7d90;
+}
+
+.price-divider {
+  position: relative;
+
+  z-index: 2;
+
+  width: 1px;
+
+  height: 100%;
+
+  background: rgba(70, 91, 120, 0.2);
+}
+
+.offer-price-main {
+  position: relative;
+
+  z-index: 2;
+
+  padding-left: 25px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.offer-price-main h3 {
+  margin: 8px 0 4px;
+
+  font-size: 38px;
+
+  font-weight: 700;
+
+  color: #415f9b;
+
+  text-shadow: 0 5px 15px rgba(65, 95, 155, 0.15);
+}
+
+.offer-price-main small {
+  color: #687b93;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   BOTTOM STRIP
+========================================= */
+
+.offer-bottom-strip {
+  position: relative;
+
+  z-index: 8;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 70px;
+
+  padding: 20px 30px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+
+  background: rgba(255, 255, 255, 0.22);
+
+  backdrop-filter: blur(15px);
+
+  color: #415671;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.8px;
+}
+
+.offer-bottom-strip div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.offer-bottom-strip span {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: rgba(67, 94, 135, 0.12);
+
+  color: #3f5e91;
+
+  font-size: 12px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .offer-container {
+    grid-template-columns: 1fr 1fr;
+
+    padding: 50px 6%;
+  }
+
+  .offer-product-area {
+    height: 420px;
+  }
+
+  .headphone-image {
+    max-height: 400px;
+  }
+
+  .offer-content h2 {
+    font-size: 56px;
+  }
+
+  .offer-bottom-strip {
+    gap: 30px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .special-offers {
+    min-height: auto;
+  }
+
+  .offer-container {
+    grid-template-columns: 1fr;
+
+    padding: 70px 25px 50px;
+
+    text-align: center;
+  }
+
+  .offer-product-area {
+    height: 350px;
+
+    order: 1;
+  }
+
+  .offer-content {
+    order: 2;
+
+    margin: auto;
+
+    padding: 22px;
+  }
+
+  .special-badge {
+    top: -30px;
+    left: 30%;
+    transform: translateX(-56%);
+    white-space: nowrap;
+  }
+
+  .headphone-glow {
+    width: 280px;
+    height: 280px;
+  }
+
+  .offer-product-area::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .headphone-image {
+    max-height: 330px;
+  }
+
+  .offer-content h2 {
+    font-size: 43px;
+  }
+
+  .title-accent {
+    margin: 22px auto;
+  }
+
+  .offer-price-card {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .price-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 20px 0;
+  }
+
+  .offer-price-main {
+    padding-left: 0;
+  }
+
+  .offer-bottom-strip {
+    flex-direction: column;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 25px;
+  }
+
+  .circle-one {
+    width: 350px;
+    height: 350px;
+  }
+
+  .circle-two {
+    width: 450px;
+    height: 450px;
+  }
+}

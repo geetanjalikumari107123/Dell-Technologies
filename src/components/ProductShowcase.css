@@ -1,0 +1,1015 @@
+/* ==========================================
+   PRODUCT SHOWCASE SECTION
+========================================== */
+
+.product-showcase {
+  position: relative;
+
+  width: 100%;
+
+  /*
+    IMPORTANT
+
+    Height depends on number of slides.
+
+    The sticky section stays visible while
+    the user scrolls through all products.
+  */
+
+  height: calc(var(--total-slides) * 100vh);
+
+  background: #07142b;
+}
+
+
+/* ==========================================
+   STICKY SCREEN
+========================================== */
+
+.product-sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 25% 50%,
+      rgba(43, 74, 145, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(
+      90deg,
+      #09172f 0%,
+      #101f42 50%,
+      #09172f 100%
+    );
+
+  color: white;
+}
+
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+.showcase-background {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+
+.background-glow {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  left: -200px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(75, 91, 255, 0.15);
+
+  filter: blur(100px);
+}
+
+
+.background-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.35;
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 0px,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+}
+
+
+/* ==========================================
+   PRODUCTS WRAPPER
+========================================== */
+
+.products-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+}
+
+
+
+/* ==========================================
+   INDIVIDUAL SLIDE
+========================================== */
+
+.product-slide {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(45%, 1fr)
+    minmax(45%, 1fr);
+
+  align-items: center;
+
+  padding:
+    40px
+    9vw;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  visibility: hidden;
+
+  transform: translateY(60px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 1s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+    visibility 0.8s ease;
+}
+
+
+/* ==========================================
+   ACTIVE PRODUCT
+========================================== */
+
+.product-slide.active {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform: translateY(0);
+
+  z-index: 5;
+}
+
+
+/* ==========================================
+   PREVIOUS PRODUCT
+========================================== */
+
+.product-slide.previous {
+  opacity: 0;
+
+  transform: translateY(-80px);
+
+  z-index: 2;
+}
+
+
+/* ==========================================
+   NEXT PRODUCT
+========================================== */
+
+.product-slide.next {
+  opacity: 0;
+
+  transform: translateY(80px);
+
+  z-index: 1;
+}
+
+
+/* ==========================================
+   PRODUCT IMAGE AREA
+========================================== */
+
+.product-image-area {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 500px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.product-image-glow {
+  position: absolute;
+
+  width: 60%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(91, 106, 255, 0.25),
+      transparent 70%
+    );
+
+  filter: blur(40px);
+
+  opacity: 0;
+
+  transform: scale(0.5);
+
+  transition:
+    opacity 1s ease,
+    transform 1.2s ease;
+}
+
+
+.product-slide.active
+.product-image-glow {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+
+/* ==========================================
+   PRODUCT IMAGE
+========================================== */
+
+.product-image {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(90%, 650px);
+
+  max-height: 75vh;
+
+  object-fit: contain;
+
+  opacity: 0;
+
+  transform:
+    translateX(-120px)
+    scale(0.85)
+    rotate(-5deg);
+
+  transition:
+    opacity 0.8s ease,
+    transform 1.2s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+
+  filter:
+    drop-shadow(
+      0 30px 50px
+      rgba(0, 0, 0, 0.45)
+    );
+}
+
+
+.product-slide.active
+.product-image {
+  opacity: 1;
+
+  transform:
+    translateX(0)
+    scale(1)
+    rotate(0deg);
+
+  transition-delay: 0.1s;
+}
+
+
+/* ==========================================
+   PRODUCT SPECIFIC IMAGE STYLES
+========================================== */
+
+.xps-product {
+  width: min(100%, 700px);
+}
+
+
+.adapter-product {
+  width: min(85%, 580px);
+}
+
+
+.hub-product {
+  width: min(90%, 620px);
+}
+
+
+.dock-product {
+  width: min(95%, 680px);
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.product-content {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 600px;
+
+  padding-left: 3vw;
+}
+
+
+/* ==========================================
+   CATEGORY
+========================================== */
+
+.product-category {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+
+.product-slide.active
+.product-category {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.35s;
+}
+
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.product-title {
+  margin: 0;
+
+  font-size:
+    clamp(
+      40px,
+      3.5vw,
+      80px
+    );
+
+  line-height: 0.9;
+
+  font-weight: 300;
+
+  opacity: 0;
+
+  transform: translateY(60px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.product-slide.active
+.product-title {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.45s;
+}
+
+
+/* ==========================================
+   LINE
+========================================== */
+
+.product-line {
+  width: 0;
+
+  height: 1px;
+
+  margin:
+    15px
+    0;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
+
+  transition:
+    width 1s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+
+.product-slide.active
+.product-line {
+  width: 180px;
+
+  transition-delay: 0.9s;
+}
+
+
+/* ==========================================
+   SUBTITLE
+========================================== */
+
+.product-subtitle {
+  margin: 0;
+
+  font-size:
+    clamp(
+      18px,
+      1.5vw,
+      28px
+    );
+
+  line-height: 1.4;
+
+  letter-spacing: 1px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.8
+    );
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+
+.product-slide.active
+.product-subtitle {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 1.05s;
+}
+
+
+
+
+/* ==========================================
+   PRICE
+========================================== */
+
+.product-price-area {
+  margin-top: 35px;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+
+.product-slide.active
+.product-price-area {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 1.35s;
+}
+
+
+.price-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 15px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+}
+
+
+.product-price {
+  margin: 0;
+
+  font-size:
+    clamp(
+      28px,
+      2.8vw,
+      52px
+    );
+
+  font-weight: 400;
+}
+
+
+.product-emi {
+  margin:
+    10px
+    0
+    0;
+
+  font-size: 16px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.product-button {
+  margin-top: 35px;
+
+  padding:
+    14px
+    24px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.4);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color: white;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.5s ease;
+}
+
+
+.product-slide.active
+.product-button {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 1.55s;
+}
+
+
+.product-button:hover {
+  background: white;
+
+  color: #07142b;
+
+  transform:
+    translateY(-4px);
+}
+
+
+/* ==========================================
+   PROGRESS BARS
+========================================== */
+
+.product-progress {
+  position: absolute;
+
+  left: 9vw;
+
+  bottom: 55px;
+
+  z-index: 20;
+
+  display: flex;
+
+  gap: 10px;
+}
+
+
+.progress-bar {
+  position: relative;
+
+  width: 55px;
+
+  height: 2px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  overflow: hidden;
+}
+
+
+.progress-bar span {
+  position: absolute;
+
+  inset: 0;
+
+  width: 0;
+
+  background: white;
+
+  transition:
+    width 0.6s ease;
+}
+
+
+.progress-bar.active span,
+.progress-bar.completed span {
+  width: 100%;
+}
+
+
+/* ==========================================
+   SLIDE NUMBER
+========================================== */
+
+.product-number {
+  position: absolute;
+
+  right: 9vw;
+
+  bottom: 55px;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+}
+
+
+.current-number {
+  color: white;
+
+  font-size: 18px;
+}
+
+
+.number-line {
+  width: 45px;
+
+  height: 1px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+}
+
+/* =====================================
+   TOP RIGHT QR / DECORATIVE IMAGE
+===================================== */
+
+.showcase-qr {
+  position: absolute;
+
+  bottom: 24%;
+  right: 9%;
+
+  width: 140px;
+  height: 140px;
+
+  z-index: 10;
+
+  opacity: 0.9;
+
+  pointer-events: none;
+}
+
+.showcase-qr img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .showcase-qr {
+    width: 90px;
+    height: 90px;
+
+    bottom: 18%;
+    right: 25px;
+
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-qr {
+    width: 75px;
+    height: 75px;
+
+    bottom: 18%;
+    right: 20px;
+
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   VERTICAL TEXT
+========================================== */
+
+.vertical-text {
+  position: absolute;
+
+  left: 30px;
+
+  top: 50%;
+
+  z-index: 10;
+
+  writing-mode: vertical-rl;
+
+  transform:
+    translateY(-50%)
+    rotate(180deg);
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .product-slide {
+    padding:
+      70px
+      7vw;
+
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .product-content {
+    padding-left: 0;
+  }
+
+
+  .product-image {
+    width: 100%;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .product-sticky {
+    height: 100svh;
+  }
+
+
+  .product-slide {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding:
+      80px
+      25px
+      130px;
+  }
+
+
+  .product-image-area {
+    width: 100%;
+
+    height: 42%;
+
+    min-height: auto;
+  }
+
+
+  .product-image {
+    max-height: 40vh;
+
+    width: min(90%, 420px);
+  }
+
+
+  .product-content {
+    width: 100%;
+
+    padding: 0;
+
+    margin-top: 10px;
+  }
+
+
+  .product-category {
+    margin-bottom: 12px;
+  }
+
+
+  .product-title {
+    font-size:
+      clamp(
+        42px,
+        12vw,
+        65px
+      );
+  }
+
+
+  .product-line {
+    margin:
+      18px
+      0;
+  }
+
+
+  .product-slide.active
+  .product-line {
+    width: 100px;
+  }
+
+
+  .product-subtitle {
+    font-size: 16px;
+  }
+
+
+  .product-model {
+    font-size: 28px;
+
+    margin-top: 10px;
+  }
+
+
+  .product-price-area {
+    margin-top: 20px;
+  }
+
+
+  .product-button {
+    margin-top: 22px;
+  }
+
+
+  .product-progress {
+    left: 25px;
+
+    bottom: 35px;
+  }
+
+
+  .progress-bar {
+    width: 35px;
+  }
+
+
+  .product-number {
+    right: 25px;
+
+    bottom: 35px;
+  }
+
+
+  .vertical-text {
+    display: none;
+  }
+
+}
