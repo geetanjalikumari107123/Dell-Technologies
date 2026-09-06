@@ -74,7 +74,7 @@ function Intro() {
   }, []);
 
   return (
-    <section className="intro" ref={introRef}>
+    <section id="ai" className="intro" ref={introRef}>
       <div className="intro-container">
 
         {/* LEFT CONTENT */}

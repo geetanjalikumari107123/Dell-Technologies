@@ -41,8 +41,8 @@ function Navbar() {
 
       {/* Desktop Navigation */}
       <nav className="nav-links">
-        <a href="#features">Features</a>
         <a href="#ai">AI Experience</a>
+        <a href="#features">Features</a>
         <a href="#products">Explore</a>
       </nav>
 

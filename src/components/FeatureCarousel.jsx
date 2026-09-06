@@ -90,7 +90,7 @@ const FeatureCarousel = () => {
   };
 
   return (
-    <section className="feature-carousel">
+    <section id="features" className="feature-carousel">
       <div className="feature-slides">
         {slides.map((slide, index) => (
           <article
