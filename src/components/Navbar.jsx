@@ -4,6 +4,21 @@ import { dellLogo, rightLogo } from "../assets/images";
 import AppImage from "./common/AppImage";
 import "./Navbar.css";
 
+const navigationItems = [
+  {
+    id: "ai",
+    label: "AI Experience",
+  },
+  {
+    id: "features",
+    label: "Features",
+  },
+  {
+    id: "products",
+    label: "Explore",
+  },
+];
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,10 +26,13 @@ function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const heroHeight = window.innerHeight;
+
       setScrolled(window.scrollY > heroHeight - 100);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     handleScroll();
 
@@ -23,33 +41,45 @@ function Navbar() {
     };
   }, []);
 
+  const toggleMenu = () => {
+    setMenuOpen((previousState) => !previousState);
+  };
+
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
   return (
     <header
-      className={`navbar 
-        ${scrolled ? "navbar-scrolled" : ""} 
-        ${menuOpen ? "navbar-menu-open" : ""}
-      `}
+      className={`navbar ${
+        scrolled ? "navbar-scrolled" : ""
+      }`}
     >
       {/* Left Logo */}
       <div className="nav-logo">
-        <AppImage src={dellLogo} alt="Dell Technologies" />
+        <AppImage
+          src={dellLogo}
+          alt="Dell Technologies"
+        />
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="nav-links">
-        <a href="#ai">AI Experience</a>
-        <a href="#features">Features</a>
-        <a href="#products">Explore</a>
+      <nav
+        className="nav-links"
+        aria-label="Primary navigation"
+      >
+        {navigationItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
 
       {/* Right Section */}
       <div className="nav-actions">
-
-        {/* Right Logo */}
         <div className="nav-right-logo">
           <AppImage
             src={rightLogo}
@@ -57,40 +87,49 @@ function Navbar() {
           />
         </div>
 
-        {/* Hamburger Button */}
+        {/* Mobile Menu Button */}
         <button
+          type="button"
           className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          onClick={toggleMenu}
+          aria-label={
+            menuOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
-          {menuOpen ? <X size={25} /> : <Menu size={25} />}
+          {menuOpen ? (
+            <X size={25} />
+          ) : (
+            <Menu size={25} />
+          )}
         </button>
-
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
       <nav
+        id="mobile-navigation"
         className={`mobile-menu ${
           menuOpen ? "mobile-menu-open" : ""
         }`}
+        aria-label="Mobile navigation"
       >
-        <a href="#features" onClick={closeMenu}>
-          <span>01</span>
-          Features
-        </a>
+        {navigationItems.map((item, index) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            onClick={closeMenu}
+          >
+            <span>
+              {String(index + 1).padStart(2, "0")}
+            </span>
 
-        <a href="#ai" onClick={closeMenu}>
-          <span>02</span>
-          AI Experience
-        </a>
-
-        <a href="#products" onClick={closeMenu}>
-          <span>03</span>
-          Explore
-        </a>
+            {item.label}
+          </a>
+        ))}
       </nav>
-
     </header>
   );
 }
